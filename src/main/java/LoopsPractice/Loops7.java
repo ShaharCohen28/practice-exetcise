@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Loops7 {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        int num1, num2, finalResult, addResult, subResult/*, place*/;
+        int num1, num2, finalResult, addResult, subResult;
         char operator;
         boolean isOK=true;
 
@@ -18,23 +18,17 @@ public class Loops7 {
             if(operator=='-'){
                 isOK=false;
             }else{
-                //place=1;
                 subResult=num1-num2;
-                System.out.println(subResult);
                 addResult=num1+num2;
-                System.out.println(addResult);
                 finalResult=addResult;
                 while(addResult>0){
                     subResult*=10;
-                    System.out.println(finalResult);
                     addResult/=10;
-                    System.out.println(subResult);
                 }
                 finalResult+=subResult;
                 System.out.printf("%d %c %d = %d\n",num1, operator, num2, finalResult);
-
             }
         }while(isOK);
-        System.out.println("Finish code, have a nice da :)");
+        System.out.println("Finish code, have a nice day :)");
     }
 }
