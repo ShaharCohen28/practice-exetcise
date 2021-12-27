@@ -26,6 +26,8 @@ public class Lecturer {
     public void setNumOfTimesPenFalls(int numOfTimesPenFalls) {
         if(numOfTimesPenFalls>0) {
             this.numOfTimesPenFalls = numOfTimesPenFalls;
+        }else{
+            this.numOfTimesPenFalls=0;
         }
     }
 
@@ -43,6 +45,6 @@ public class Lecturer {
                 "name='" + name + '\'' +
                 ", numOfTimesPenFalls=" + numOfTimesPenFalls +
                 ", favoriteIceCream='" + favoriteIceCream + '\'' +
-                '}';
+                "}\n";
     }
 }

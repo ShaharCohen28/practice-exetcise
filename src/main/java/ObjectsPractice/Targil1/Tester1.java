@@ -14,7 +14,7 @@ public class Tester1 {
         System.out.println("Please enter number pf lecturers in college");
         maxLecturers = scanner.nextInt();
         college = new College(collegeName, maxLecturers);
-        addLecturers(college, 2);
+        addLecturers(college, 3);
         System.out.println(college.toString());
         college.sortByPenFalls();
         System.out.println(college.toString());

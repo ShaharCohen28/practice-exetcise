@@ -58,7 +58,7 @@ public class College {
         return "College{" +
                 "name='" + name + '\'' +
                 ", numOfLecturers=" + numOfLecturers +
-                "\nallLecturers=" + Arrays.toString(allLecturers) +
+                " allLecturers=\n" + Arrays.toString(allLecturers) +
                 '}';
     }
 }
