@@ -23,13 +23,10 @@ public class Loops9 {
                 newNum+=digit2*place;
                 place*=10;
                 countDigits++;
-                //System.out.printf("%d %d %d\n", newNum, place, countDigits);
             }
             num1 /= 10;
             num2 /= 10;
-            //System.out.printf("%d %d\n", num1, num2);
         }
-        //System.out.println(countDigits + " " + num1 + " " + num2);
         System.out.println("The new number is: " + newNum);
     }
 }
