@@ -8,7 +8,7 @@ public class Loops5 {
         int num, tempNum, newNum=0, firstDigit, secondDigit , place=1;
 
         System.out.println("Please enter a number");
-        num= scanner.nextInt();;
+        num= scanner.nextInt();
         tempNum=num;
         //exp: given number in the first iteration
         //temp number: 123456
