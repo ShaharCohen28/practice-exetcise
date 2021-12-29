@@ -19,10 +19,13 @@ public class Loops9 {
         while(countDigits<9 && num1!=0) {
             digit1 = num1 % 10;
             digit2 = num2 % 10;
-            for(int i=0;i<digit1;i++){
+            for(int index=0;index<digit1;index++){
                 newNum+=digit2*place;
                 place*=10;
                 countDigits++;
+                if (countDigits==9){
+                    break;
+                }
             }
             num1 /= 10;
             num2 /= 10;
