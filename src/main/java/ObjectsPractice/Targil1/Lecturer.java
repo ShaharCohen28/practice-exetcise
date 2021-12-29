@@ -24,10 +24,10 @@ public class Lecturer {
     }
 
     public void setNumOfTimesPenFalls(int numOfTimesPenFalls) {
-        if(numOfTimesPenFalls>0) {
+        if (numOfTimesPenFalls > 0) {
             this.numOfTimesPenFalls = numOfTimesPenFalls;
-        }else{
-            this.numOfTimesPenFalls=0;
+        } else {
+            this.numOfTimesPenFalls = 0;
         }
     }
 

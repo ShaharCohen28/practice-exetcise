@@ -22,10 +22,10 @@ public class Guest {
     }
 
     public void setPassport(int passport) {
-        if(passport>0) {
+        if (passport > 0) {
             this.passport = passport;
-        }else{
-            this.passport=0;
+        } else {
+            this.passport = 0;
             System.out.println("Invalid passport");
         }
     }

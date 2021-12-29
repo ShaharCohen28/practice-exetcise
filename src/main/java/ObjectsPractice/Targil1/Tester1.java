@@ -23,20 +23,20 @@ public class Tester1 {
     }
 
     public static void addLecturers(College college, int times) {
-        Scanner scanner=new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String lecturerName, lecturerFavoriteIceCream;
         int penFalls;
 
-        for (int counter = 0; counter <times ; counter++) {
-            System.out.println("Enter the name of lecturer number " + (counter+1));
-            lecturerName= scanner.next();
+        for (int counter = 0; counter < times; counter++) {
+            System.out.println("Enter the name of lecturer number " + (counter + 1));
+            lecturerName = scanner.next();
             System.out.println("Enter the number of times his pen fell");
-            penFalls= scanner.nextInt();
+            penFalls = scanner.nextInt();
             System.out.println("Enter his favorite ice cream name");
-            lecturerFavoriteIceCream= scanner.next();
-            if(college.addLecturer(new Lecturer(lecturerName,penFalls,lecturerFavoriteIceCream))){
+            lecturerFavoriteIceCream = scanner.next();
+            if (college.addLecturer(new Lecturer(lecturerName, penFalls, lecturerFavoriteIceCream))) {
                 System.out.println("Lecturer successfully added");
-            }else{
+            } else {
                 System.out.println("No more place for another lecturer");
             }
         }

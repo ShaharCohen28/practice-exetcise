@@ -35,17 +35,17 @@ public class Room {
         return true;
     }
 
-    public boolean findGuest(int passport){
-        for (int guestNumber = 0; guestNumber <numOfGuests ; guestNumber++) {
-            if(passport==allGuests[guestNumber].getPassport()){
+    public boolean findGuest(int passport) {
+        for (int guestNumber = 0; guestNumber < numOfGuests; guestNumber++) {
+            if (passport == allGuests[guestNumber].getPassport()) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isEmpty(){
-        return numOfGuests==0;
+    public boolean isEmpty() {
+        return numOfGuests == 0;
     }
 
     @Override

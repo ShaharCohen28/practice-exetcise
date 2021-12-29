@@ -71,9 +71,9 @@ public class Hotel {
                     countEmpty++;
                 }
             }
-            if(countEmpty>maxEmpty){
-                maxEmpty=countEmpty;
-                maxFloor=floor;
+            if (countEmpty > maxEmpty) {
+                maxEmpty = countEmpty;
+                maxFloor = floor;
             }
         }
         return maxFloor;
