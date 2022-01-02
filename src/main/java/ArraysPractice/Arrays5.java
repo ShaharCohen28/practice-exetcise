@@ -16,6 +16,8 @@ public class Arrays5 {
                 break;
             }
         }
+        printArray(arr1);
+        printArray(arr2);
         System.out.println("the numbers in array 2 are " + (isOK?"":"not ") + "deflected by one place");
     }
 
