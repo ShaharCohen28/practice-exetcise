@@ -24,8 +24,8 @@ public class Arrays8 {
     public static void initiateArray(int[] arr) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter " + arr.length + " numbers for the first array");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = scanner.nextInt();
+        for (int index = 0; index < arr.length; index++) {
+            arr[index] = scanner.nextInt();
         }
     }
 
