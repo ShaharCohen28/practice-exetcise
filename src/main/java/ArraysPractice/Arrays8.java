@@ -11,8 +11,8 @@ public class Arrays8 {
         boolean isMirror = true;
 
         initiateArray(arr);
-        for (int i = 0; i < ARRAY_SIZE / 2; i++) {
-            if (reverseValue(arr[i]) != arr[ARRAY_SIZE - 1 - i]) {
+        for (int index = 0; index < ARRAY_SIZE / 2; index++) {
+            if (reverseValue(arr[index]) != arr[ARRAY_SIZE - 1 - index]) {
                 isMirror = false;
                 break;
             }
