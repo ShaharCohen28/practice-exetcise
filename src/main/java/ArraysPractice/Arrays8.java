@@ -37,8 +37,7 @@ public class Arrays8 {
     }
 
     public static int reverseValue(int number) {
-        int reverseValue = 0;
-        int temp = number;
+        int reverseValue = 0, temp = number;
         while (temp > 0) {
             reverseValue = 10 * reverseValue + temp % 10;
             temp /= 10;
