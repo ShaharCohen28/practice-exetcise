@@ -2,6 +2,7 @@ package exercise;
 
 public class Test {
     public static void main(String[] args) {
+        Company.getInstance("company :)");
         Employee[] employees = new Employee[10];
         employees[0] = new Secretary("csdc", 23424, "grgreg");
         employees[1] = new Secretary("cds", 4242, " ddcs");

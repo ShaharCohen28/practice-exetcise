@@ -23,6 +23,14 @@ public class Company {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "employees=" + employees +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     public void addEmployee(Employee employee){
         if(this.employees.isEmpty()){
             this.employees=new ArrayList<Employee>();
@@ -49,5 +57,43 @@ public class Company {
             System.out.println(temp);
             temp=this.employees.get(++pointer);
         }
+    }
+
+    public double getAverageSalary(){
+        double sum=0, count=0;
+        for (Employee employee : this.employees) {
+            sum += employee.getSalary();
+            count++;
+        }
+        return sum/count;
+    }
+
+    public double getManagementAverageSalary(){
+        double sum=0, count=0;
+        for (Employee employee:this.employees) {
+            if(employee instanceof Manager){
+                sum += employee.getSalary();
+                count++;
+            }
+        }
+        return sum/count;
+    }
+
+    public double getYearlyPayment(){
+        return 12*getAverageSalary();
+    }
+
+    public int getTotalNumOfEmployees(){
+        return this.employees.size();
+    }
+
+    public int getTotalNumOfManagers(){
+        int count=0;
+        for (Employee employee:this.employees) {
+            if(employee instanceof Manager){
+                count++;
+            }
+        }
+        return count;
     }
 }
