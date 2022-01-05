@@ -78,15 +78,15 @@ public class Practice1 {
         int[] distinct = fillMinus(size);
         int place = 0;
         for (int index = 0; index < arr1.length; index++) {
-            if (!hasBeen(arr2, arr1[index]) && !hasBeen(distinct, arr1[index])) {
+            if (!hasBeen(arr2, arr1[index], arr2.length-1) && !hasBeen(distinct, arr1[index],place)) {
                 distinct[place++] = arr1[index];
             }
         }
         return distinct;
     }
 
-    public static boolean hasBeen(int[] arr, int number) {
-        for (int index = 0; index < arr.length; index++) {
+    public static boolean hasBeen(int[] arr, int number, int checkRange) {
+        for (int index = 0; index <= checkRange; index++) {
             if (arr[index] == number) {
                 return true;
             }
