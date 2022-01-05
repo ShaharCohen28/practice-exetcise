@@ -34,4 +34,8 @@ public class Engineer extends Employee{
         return getSpecialty().equals(engineer.getSpecialty());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getSpecialty());
+    }
 }

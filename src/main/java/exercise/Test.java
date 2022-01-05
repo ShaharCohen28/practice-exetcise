@@ -36,7 +36,8 @@ public class Test {
     }
 
     public static void printAverageSalary(Employee[] employees) {
-        double sum = 0, count = 0;
+        double sum = 0;
+        int count = 0;
         for (Employee employee : employees) {
             sum += employee.getSalary();
             count++;
@@ -45,7 +46,8 @@ public class Test {
     }
 
     public static void printManagementAverageSalary(Employee[] employees) {
-        double sum = 0, count = 0;
+        double sum = 0;
+        int count = 0;
         for (Employee employee : employees) {
             if (employee instanceof Manager) {
                 sum += employee.getSalary();

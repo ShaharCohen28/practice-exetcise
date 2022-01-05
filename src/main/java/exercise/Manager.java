@@ -34,4 +34,8 @@ public class Manager extends Employee {
         return getDepartment().equals(manager.getDepartment());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getDepartment());
+    }
 }

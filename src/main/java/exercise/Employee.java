@@ -43,4 +43,8 @@ public class Employee {
         return Double.compare(employee.getSalary(), getSalary()) == 0 && getName().equals(employee.getName());
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getSalary());
+    }
 }

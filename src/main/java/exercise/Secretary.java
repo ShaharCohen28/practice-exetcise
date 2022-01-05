@@ -33,5 +33,8 @@ public class Secretary extends Employee{
         return getOffice().equals(secretary.getOffice());
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getOffice());
+    }
 }

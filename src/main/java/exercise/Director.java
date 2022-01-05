@@ -36,6 +36,6 @@ public class Director extends Manager{
 
     @Override
     public int hashCode() {
-        return Objects.hash(getGroup());
+        return Objects.hash(super.hashCode(), getGroup());
     }
 }
