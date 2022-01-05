@@ -3,7 +3,7 @@ package exercise;
 import java.util.Objects;
 
 public class Director extends Manager{
-    String group;
+    private String group;
 
     public Director(String name, double salary, String department, String group) {
         super(name, salary, department);
@@ -20,9 +20,11 @@ public class Director extends Manager{
 
     @Override
     public String toString() {
-        return "Director{" + super.toString() +
-                "group='" + group + '\'' +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append(super.toString());
+        stringBuilder.append("group='");
+        stringBuilder.append(this.group);
+        return stringBuilder.toString();
     }
 
     @Override

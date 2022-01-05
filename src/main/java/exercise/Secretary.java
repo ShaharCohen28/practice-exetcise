@@ -3,7 +3,7 @@ package exercise;
 import java.util.Objects;
 
 public class Secretary extends Employee{
-    protected String office;
+    private String office;
     public Secretary(String name, double salary, String office) {
         super(name, salary);
         this.office=office;
@@ -19,9 +19,11 @@ public class Secretary extends Employee{
 
     @Override
     public String toString() {
-        return "Secretary{" + super.toString() +
-                "office='" + office + '\'' +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append(super.toString());
+        stringBuilder.append("office='");
+        stringBuilder.append(this.office);
+        return stringBuilder.toString();
     }
 
     @Override

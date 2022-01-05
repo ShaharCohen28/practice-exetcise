@@ -27,12 +27,38 @@ public class Employee {
         this.salary = salary;
     }
 
+    public static void printAverageSalary(Employee[] employees) {
+        double sum = 0;
+        int count = 0;
+        for (Employee employee : employees) {
+            sum += employee.getSalary();
+            count++;
+        }
+        System.out.println("The average salary is " + sum / count);
+    }
+
+    public static void printManagementAverageSalary(Employee[] employees) {
+        double sum = 0;
+        int count = 0;
+        for (Employee employee : employees) {
+            if (employee instanceof Manager) {
+                sum += employee.getSalary();
+                count++;
+            }
+        }
+        try {
+            System.out.println("The average management salary is " + sum / count);
+        } catch (ArithmeticException err) {
+            System.out.println("No managers");
+        }
+
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", salary=" + salary +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("name= ' " + this.name + "' ,  salary= ' " + this.salary + "' ");
+        return stringBuilder.toString();
     }
 
     @Override
