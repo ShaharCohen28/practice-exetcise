@@ -78,7 +78,7 @@ public class Practice1 {
         int[] distinct = fillMinus(size);
         int place = 0;
         for (int index = 0; index < arr1.length; index++) {
-            if (!hasBeen(arr2, arr1[index], size-1) && !hasBeen(distinct, arr1[index],place)) {
+            if (!hasBeen(arr2, arr1[index], size) && !hasBeen(distinct, arr1[index], place)) {
                 distinct[place++] = arr1[index];
             }
         }
@@ -86,7 +86,7 @@ public class Practice1 {
     }
 
     public static boolean hasBeen(int[] arr, int number, int checkRange) {
-        for (int index = 0; index <= checkRange; index++) {
+        for (int index = 0; index < checkRange; index++) {
             if (arr[index] == number) {
                 return true;
             }
