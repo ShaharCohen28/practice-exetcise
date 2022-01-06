@@ -58,7 +58,7 @@ public class Practice1 {
 
     public static int buildReverseNumber(int[] arr) {
         int reverseNumber = 0, place = 1, index = 0;
-        while (arr[index] != -1) {
+        while (arr[index] != -1 && index<arr.length) {
             reverseNumber += arr[index] * place;
             place *= 10;
             index++;
