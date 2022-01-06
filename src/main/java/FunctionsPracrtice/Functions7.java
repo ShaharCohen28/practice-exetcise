@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Functions7 {
     public static void main(String[] args) {
-        final int ROWS = 4, COLS = 3;
+        final int ROWS = 3, COLS = 5;
         int[][] arr = new int[ROWS][COLS];
         initiateArray(arr);
         printArray(arr);
