@@ -9,7 +9,7 @@ public class Functions11 {
         String move = "  ";
         int size, pointerEmpty;
 
-        System.out.println("Please enter e number of the size");
+        System.out.println("Please enter a number of the size");
         size = scanner.nextInt();
         char[] marblePuzzle = new char[2 * size + 1];
         pointerEmpty = 2 * size;
@@ -18,7 +18,7 @@ public class Functions11 {
 
         while (!isOK(marblePuzzle, size, pointerEmpty)) {
             printMarblePuzzle(marblePuzzle, move);
-            TimeUnit.SECONDS.sleep(1);
+            //TimeUnit.SECONDS.sleep(1);
             if (checkShiftRight(marblePuzzle, pointerEmpty)) {
                 pointerEmpty = switchPlace(marblePuzzle, pointerEmpty - 1, pointerEmpty);
                 move = "SR";
