@@ -46,7 +46,7 @@ public class Functions8 {
         int indexNumber1 = number1.length - 1, indexNumber2 = number2.length - 1;
         do {
             res[indexRes] = (number1[indexNumber1] + number2[indexNumber2] + carry) % 10;
-            carry = (number1[indexNumber1] + number2[indexNumber2]) / 10;
+            carry = (number1[indexNumber1] + number2[indexNumber2] + carry) / 10;
             indexNumber1--;
             indexNumber2--;
             indexRes--;
@@ -55,8 +55,8 @@ public class Functions8 {
             fillResult(res, number1, indexRes, indexNumber1, carry);
         } else if (indexNumber2 > indexNumber1) {
             fillResult(res, number2, indexRes, indexNumber2, carry);
-        }else{
-            res[indexRes]=carry;
+        } else {
+            res[indexRes] = carry;
         }
         return res;
     }
@@ -64,7 +64,7 @@ public class Functions8 {
     public static void fillResult(int[] res, int[] number, int indexRes, int indexNumber, int carry) {
         while (indexNumber >= 0) {
             res[indexRes] = (number[indexNumber] + carry) % 10;
-            carry = 0;
+            carry = (number[indexNumber] + carry) / 10;
             indexNumber--;
             indexRes--;
         }
