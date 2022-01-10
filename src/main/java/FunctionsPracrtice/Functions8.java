@@ -32,21 +32,23 @@ public class Functions8 {
 
     public static int[] insertNumber(int num) {
         int[] arr = new int[numberLength(num)];
-        int index = arr.length - 1, temp = num;
-        while (temp > 0) {
-            arr[index--] = temp % 10;
-            temp /= 10;
+        int temp = num;
+        for (int index = arr.length-1 ;index >=0 ; index--) {
+            arr[index]=temp%10;
+            temp/=10;
         }
         return arr;
     }
 
     public static int[] add(int[] number1, int[] number2) {
-        int[] res = new int[number1.length + number2.length];
-        int carry = 0, indexRes = res.length - 1;
+        int longer=(Math.max(number1.length, number2.length));
+        int[] res = new int[longer+1];
+        int carry = 0, indexRes = res.length - 1, currentSum;
         int indexNumber1 = number1.length - 1, indexNumber2 = number2.length - 1;
         do {
-            res[indexRes] = (number1[indexNumber1] + number2[indexNumber2] + carry) % 10;
-            carry = (number1[indexNumber1] + number2[indexNumber2] + carry) / 10;
+            currentSum =number1[indexNumber1] + number2[indexNumber2] + carry;
+            res[indexRes] = currentSum % 10;
+            carry = currentSum / 10;
             indexNumber1--;
             indexNumber2--;
             indexRes--;
@@ -62,9 +64,11 @@ public class Functions8 {
     }
 
     public static void fillResult(int[] res, int[] number, int indexRes, int indexNumber, int carry) {
+        int currentSum;
         while (indexNumber >= 0) {
-            res[indexRes] = (number[indexNumber] + carry) % 10;
-            carry = (number[indexNumber] + carry) / 10;
+            currentSum=number[indexNumber] + carry;
+            res[indexRes] = currentSum % 10;
+            carry = currentSum / 10;
             indexNumber--;
             indexRes--;
         }
