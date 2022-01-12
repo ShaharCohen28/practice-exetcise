@@ -1,13 +1,17 @@
 package exercise;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
-    private static Company singleInstance=null;
-    private List<Employee> employees;
+    //private static Company singleInstance=null;
+    private List<Employee> employees = new ArrayList<>();
     private String name;
+    private static final String pattern = "###,###.00";
+    private static final DecimalFormat decimalFormat = new DecimalFormat(pattern);
 
+    /*
     private Company(String name){
         this.name=name;
     }
@@ -19,78 +23,91 @@ public class Company {
         return singleInstance;
     }
 
+     */
+
+    public Company(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "Company{" +
-                "employees=" + employees +
-                ", name='" + name + '\'' +
-                '}';
+    public List<Employee> getEmployees() {
+        return this.employees;
     }
 
-    public void addEmployee(Employee employee){
-        if(this.employees.isEmpty()){
-            this.employees=new ArrayList<Employee>();
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Company name: ");
+        stringBuilder.append(this.name);
+        stringBuilder.append("\n");
+        for (Employee employee : this.employees) {
+            stringBuilder.append(employee.toString());
+            stringBuilder.append("\n");
         }
+        return stringBuilder.toString();
+    }
+
+    public void addEmployee(Employee employee) {
         this.employees.add(employee);
     }
 
-    public void removeEmployee(Employee employee){
-        int pointer=0;
-        Employee temp=employees.get(pointer);
-        while(temp!=null){
-            if(temp.equals(employee)){
-                break;
-            }
-            temp=employees.get(++pointer);
-        }
-        employees.remove(pointer);
+    public void removeEmployee(Employee employee) {
+        this.employees.remove(employee);
     }
 
-    public void printEmployees(){
-        int pointer=0;
-        Employee temp=this.employees.get(pointer);
-        while(temp!=null){
-            System.out.println(temp);
-            temp=this.employees.get(++pointer);
+    private void checkException() throws CompanyReportException {
+        if (this.employees.isEmpty()) {
+            throw new CompanyReportException("The list of employees is empty", this.name, "Data Unavailable");
+        }
+        if (this.employees == null) {
+            throw new CompanyReportException("The list of employees doesn't exist", this.name, "Data Unavailable");
         }
     }
 
-    public double getAverageSalary(){
-        double sum=0, count=0;
+    public String getAverageSalary() throws CompanyReportException {
+        checkException();
+        double sum = 0;
         for (Employee employee : this.employees) {
             sum += employee.getSalary();
-            count++;
         }
-        return sum/count;
+        return decimalFormat.format(sum / employees.size());
     }
 
-    public double getManagementAverageSalary(){
-        double sum=0, count=0;
-        for (Employee employee:this.employees) {
-            if(employee instanceof Manager){
+    public String getManagementAverageSalary() throws CompanyReportException {
+        checkException();
+        double sum = 0;
+        int count = 0;
+        for (Employee employee : this.employees) {
+            if (employee instanceof Manager) {
                 sum += employee.getSalary();
                 count++;
             }
         }
-        return sum/count;
+        return decimalFormat.format(sum / count);
     }
 
-    public double getYearlyPayment(){
-        return 12*getAverageSalary();
+    public String getYearlyPayment() throws CompanyReportException {
+        checkException();
+        double totalMonthlySalary = 0;
+        for (Employee employee : this.employees) {
+            totalMonthlySalary += employee.getSalary();
+        }
+        return decimalFormat.format(12 * totalMonthlySalary);
     }
 
-    public int getTotalNumOfEmployees(){
+    public int getTotalNumOfEmployees() throws CompanyReportException {
+        checkException();
         return this.employees.size();
     }
 
-    public int getTotalNumOfManagers(){
-        int count=0;
-        for (Employee employee:this.employees) {
-            if(employee instanceof Manager){
+    public int getTotalNumOfManagers() throws CompanyReportException {
+        checkException();
+        int count = 0;
+        for (Employee employee : this.employees) {
+            if (employee instanceof Manager) {
                 count++;
             }
         }

@@ -21,7 +21,7 @@ public class Secretary extends Employee{
     public String toString() {
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append(super.toString());
-        stringBuilder.append("office='");
+        stringBuilder.append(", office= ");
         stringBuilder.append(this.office);
         return stringBuilder.toString();
     }

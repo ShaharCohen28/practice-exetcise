@@ -22,7 +22,7 @@ public class Director extends Manager{
     public String toString() {
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append(super.toString());
-        stringBuilder.append("group='");
+        stringBuilder.append(", group= ");
         stringBuilder.append(this.group);
         return stringBuilder.toString();
     }
