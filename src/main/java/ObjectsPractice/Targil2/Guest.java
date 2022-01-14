@@ -32,9 +32,12 @@ public class Guest {
 
     @Override
     public String toString() {
-        return "Guest{" +
-                "name='" + name + '\'' +
-                ", passport=" + passport +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("Guest name: ");
+        stringBuilder.append(this.name);
+        stringBuilder.append(", passport: ");
+        stringBuilder.append(this.passport);
+        stringBuilder.append("\n");
+        return stringBuilder.toString();
     }
 }

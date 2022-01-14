@@ -81,9 +81,22 @@ public class Hotel {
 
     @Override
     public String toString() {
-        return "Hotel{" +
-                "numOfUsedRooms=" + numOfUsedRooms +
-                ", allRooms=" + Arrays.toString(allRooms) +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("number of used rooms: ");
+        stringBuilder.append(this.numOfUsedRooms);
+        stringBuilder.append("\n");
+        for (int floor = 0; floor <this.allRooms.length ; floor++) {
+            for (int room = 0; room <this.allRooms[0].length ; room++) {
+                if (this.allRooms[floor][room].isEmpty()){
+                    continue;
+                }
+                stringBuilder.append("room number ");
+                stringBuilder.append(floor*100 + room);
+                stringBuilder.append(" ");
+                stringBuilder.append(this.allRooms[floor][room].toString());
+                stringBuilder.append("\n");
+            }
+        }
+        return stringBuilder.toString();
     }
 }

@@ -50,10 +50,14 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "numOfBeds=" + numOfBeds +
-                ", numOfGuests=" + numOfGuests +
-                ", allGuests=" + Arrays.toString(allGuests) +
-                '}';
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("number of beds: ");
+        stringBuilder.append(this.numOfBeds);
+        stringBuilder.append(", number of guests: ");
+        stringBuilder.append(this.numOfGuests);
+        stringBuilder.append("\nall guests:\n");
+        stringBuilder.append(Arrays.toString(allGuests));
+        stringBuilder.append('\n');
+        return stringBuilder.toString();
     }
 }
