@@ -10,6 +10,8 @@ public class Hotel {
     private int numOfUsedRooms;
     private Room[][] allRooms;
 
+    public Hotel(){}
+
     public Hotel(int floors, int numOfRooms) {
         allRooms = new Room[floors][numOfRooms];
         for (int floorNumber = 0; floorNumber < floors; floorNumber++) {

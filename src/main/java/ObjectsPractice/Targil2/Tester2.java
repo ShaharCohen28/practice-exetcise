@@ -8,7 +8,7 @@ public class Tester2 {
     public static String fileName="hotel.txt";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Hotel hotel = new Hotel((int) (Math.random() * 9) + 1, (int) (Math.random() * 99) + 1);
+        Hotel hotel = new Hotel();
         char option;
         int result;
         boolean isContinue = true;

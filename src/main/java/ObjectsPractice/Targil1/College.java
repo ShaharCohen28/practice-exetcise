@@ -11,6 +11,8 @@ public class College {
     private int numOfLecturers;
     private Lecturer[] allLecturers;
 
+    public College(){}
+
     public College(String name, int maxLecturers) {
         setName(name);
         allLecturers = new Lecturer[maxLecturers];
@@ -106,6 +108,7 @@ public class College {
                 System.out.println("Lecturer successfully added");
             } else {
                 System.out.println("No more place for another lecturer");
+                break;
             }
         }
     }

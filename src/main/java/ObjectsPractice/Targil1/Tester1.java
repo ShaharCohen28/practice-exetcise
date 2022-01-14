@@ -7,7 +7,7 @@ public class Tester1 {
     public static String fileName="collage.txt";
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
-        College college;
+        College college=new College();
         int option;
         boolean isValid=false;
         do{
@@ -19,19 +19,47 @@ public class Tester1 {
                 case 1:
                     college=loadCollage();
                     isValid=true;
-                    college.sortByPenFalls();
-                    System.out.println(college.toString());
                     break;
                 case 2:
                     college=createNewCollage();
                     isValid=true;
-                    college.sortByPenFalls();
-                    System.out.println(college.toString());
                     break;
                 default:
                     System.out.println("Invalid input");
             }
         }while (!isValid);
+
+
+
+        isValid=false;
+        do {
+            System.out.println("Do you want to add lecturers to the collage? y/n");
+            option=scanner.next().charAt(0);
+            switch (option){
+                case 'y':
+                case 'Y':
+                    System.out.println("Enter number of lecturers to add");
+                    College.addLecturers(college, scanner.nextInt());
+                    isValid=true;
+                    break;
+                case 'n':
+                case 'N':
+                    System.out.println("Have a nice day :)");
+                    isValid=true;
+                    break;
+                default:
+                    System.out.println("Invalid input");
+            }
+        }while(!isValid);
+        System.out.println(college.toString());
+        college.sortByPenFalls();
+        System.out.println(college.toString());
+        try {
+            college.save(fileName);
+            System.out.println("Collage info saved");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static College createNewCollage(){
@@ -45,14 +73,7 @@ public class Tester1 {
         System.out.println("Please enter number of lecturers in college");
         maxLecturers = scanner.nextInt();
         college = new College(collegeName, maxLecturers);
-        System.out.println("Please enter number of lecturers you want to add");
-        College.addLecturers(college, scanner.nextInt());
-        System.out.println(college.toString());
-        try {
-            college.save(fileName);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
         return college;
     }
 
@@ -63,8 +84,9 @@ public class Tester1 {
             System.out.println(college.toString());
             return college;
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("File not found, creating new collage");
+            return createNewCollage();
         }
-        return college;
     }
 }
