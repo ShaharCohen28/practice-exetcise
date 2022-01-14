@@ -6,14 +6,10 @@ import java.util.Scanner;
 public class Tester1 {
     public static String fileName="collage.txt";
     public static void main(String[] args) {
-        College college=showMessage();
-        sortByPen(college);
-    }
-
-    public static College showMessage(){
         Scanner scanner=new Scanner(System.in);
         College college;
         int option;
+        boolean isValid=false;
         do{
             System.out.println("Do you want to load collage from an existing file of create a new one?");
             System.out.println("1- load collage");
@@ -21,13 +17,21 @@ public class Tester1 {
             option=scanner.nextInt();
             switch (option){
                 case 1:
-                    return loadCollage();
+                    college=loadCollage();
+                    isValid=true;
+                    college.sortByPenFalls();
+                    System.out.println(college.toString());
+                    break;
                 case 2:
-                    return createNewCollage();
+                    college=createNewCollage();
+                    isValid=true;
+                    college.sortByPenFalls();
+                    System.out.println(college.toString());
+                    break;
                 default:
                     System.out.println("Invalid input");
             }
-        }while (true);
+        }while (!isValid);
     }
 
     public static College createNewCollage(){
@@ -62,10 +66,5 @@ public class Tester1 {
             e.printStackTrace();
         }
         return college;
-    }
-
-    public static void sortByPen(College college){
-        college.sortByPenFalls();
-        System.out.println(college.toString());
     }
 }

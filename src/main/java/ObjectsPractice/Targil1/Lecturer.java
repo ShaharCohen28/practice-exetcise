@@ -25,6 +25,7 @@ public class Lecturer {
         scanner.nextLine();
         this.favoriteIceCream=scanner.next();
         this.id=scanner.nextInt();
+        idGenerator= scanner.nextInt();
     }
 
     public Lecturer(String fileName) throws FileNotFoundException {
@@ -34,6 +35,7 @@ public class Lecturer {
         scanner.nextLine();
         this.favoriteIceCream=scanner.next();
         this.id=scanner.nextInt();
+        idGenerator= scanner.nextInt();
         scanner.close();
     }
 
@@ -42,6 +44,7 @@ public class Lecturer {
         printWriter.println(this.numOfTimesPenFalls);
         printWriter.println(this.favoriteIceCream);
         printWriter.println(this.id);
+        printWriter.println(idGenerator);
     }
 
     public void save(String fileName) throws FileNotFoundException {

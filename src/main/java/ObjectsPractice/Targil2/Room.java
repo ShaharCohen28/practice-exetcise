@@ -1,6 +1,10 @@
 package ObjectsPractice.Targil2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Room {
     private int numOfBeds;
@@ -11,6 +15,40 @@ public class Room {
         setNumOfBeds(numOfBeds);
         allGuests = new Guest[numOfBeds];
         numOfGuests = 0;
+    }
+
+    public Room(Scanner scanner){
+        this.numOfBeds=scanner.nextInt();
+        this.allGuests=new Guest[this.numOfBeds];
+        this.numOfGuests=scanner.nextInt();
+        for (int index = 0; index <this.numOfGuests ; index++) {
+            this.allGuests[index]=new Guest(scanner);
+        }
+    }
+
+    public Room(String fileName) throws FileNotFoundException {
+        Scanner scanner=new Scanner(new File(fileName));
+        this.numOfBeds=scanner.nextInt();
+        this.allGuests=new Guest[this.numOfBeds];
+        this.numOfGuests=scanner.nextInt();
+        for (int index = 0; index <this.numOfGuests ; index++) {
+            this.allGuests[index]=new Guest(scanner);
+        }
+        scanner.close();
+    }
+
+    public void save(PrintWriter printWriter){
+        printWriter.println(this.numOfBeds);
+        printWriter.println(this.numOfGuests);
+        for (int index = 0; index <this.numOfGuests ; index++) {
+            this.allGuests[index].save(printWriter);
+        }
+    }
+
+    public void save(String fileName) throws FileNotFoundException {
+        PrintWriter printWriter=new PrintWriter(fileName);
+        save(printWriter);
+        printWriter.close();
     }
 
     public int getNumOfBeds() {
@@ -24,7 +62,6 @@ public class Room {
     public int getNumOfGuests() {
         return numOfGuests;
     }
-
 
     public boolean addGuest(Guest guest) {
         if (numOfGuests == allGuests.length) {

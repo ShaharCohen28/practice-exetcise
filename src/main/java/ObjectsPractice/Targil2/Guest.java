@@ -1,5 +1,10 @@
 package ObjectsPractice.Targil2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class Guest {
     private String name;
     private int passport;
@@ -7,6 +12,32 @@ public class Guest {
     public Guest(String name, int passport) {
         setName(name);
         setPassport(passport);
+    }
+
+    public Guest(Scanner scanner){
+        this.name=scanner.next();
+        this.passport=scanner.nextInt();
+        scanner.nextLine();
+    }
+
+    public Guest(String fileName) throws FileNotFoundException {
+        Scanner scanner=new Scanner(new File(fileName));
+        this.name=scanner.next();
+        this.passport=scanner.nextInt();
+        scanner.nextLine();
+        scanner.close();
+    }
+
+    public void save(PrintWriter printWriter){
+        printWriter.print(this.name + "\t");
+        printWriter.print(this.passport + " \t");
+        printWriter.println();
+    }
+
+    public void save(String fileName) throws FileNotFoundException {
+        PrintWriter printWriter=new PrintWriter(fileName);
+        save(printWriter);
+        printWriter.close();
     }
 
     public String getName() {

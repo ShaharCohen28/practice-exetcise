@@ -1,8 +1,11 @@
 package ObjectsPractice.Targil2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Tester2 {
+    public static String fileName="hotel.txt";
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Hotel hotel = new Hotel((int) (Math.random() * 9) + 1, (int) (Math.random() * 99) + 1);
@@ -10,12 +13,33 @@ public class Tester2 {
         int result;
         boolean isContinue = true;
 
+        do{
+            System.out.println("Please choose between the following options:");
+            System.out.println("1- create new hotel");
+            System.out.println("2- load existing hotel");
+            option=scanner.next().charAt(0);
+            switch (option){
+                case '1':
+                    hotel=createHotel();
+                    isContinue=false;
+                    break;
+                case '2':
+                    hotel=loadHotel();
+                    isContinue=false;
+                    break;
+                default:
+                    System.out.println("Invalid input, try again");
+            }
+        }while(isContinue);
+
+        isContinue=true;
+
         do {
             showMessage();
             option = scanner.next().charAt(0);
             switch (option) {
                 case '1':
-                    addGuestsToRoom(hotel);
+                    Hotel.addGuestsToRoom(hotel);
                     break;
                 case '2':
                     System.out.println("Please enter passport number");
@@ -32,6 +56,13 @@ public class Tester2 {
                     isContinue = false;
             }
         } while (isContinue);
+
+        try {
+            hotel.save(fileName);
+            System.out.println("Hotel info was saved");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void showMessage() {
@@ -43,29 +74,22 @@ public class Tester2 {
         System.out.println("to finish, enter anything else");
     }
 
-    public static void addGuestsToRoom(Hotel hotel) {
-        Scanner scanner = new Scanner(System.in);
-        Guest[] newGuests;
-        String name;
-        int passport, result;
-
-        System.out.println("Please enter number of guests");
-        newGuests = new Guest[scanner.nextInt()];
-
-        for (int guestNumber = 0; guestNumber < newGuests.length; guestNumber++) {
-            System.out.println("Please enter name of guest number " + (guestNumber + 1));
-            name = scanner.next();
-            System.out.println("PLease enter guest passport");
-            passport = scanner.nextInt();
-            newGuests[guestNumber] = new Guest(name, passport);
+    public static Hotel loadHotel(){
+        Hotel hotel;
+        try {
+            Scanner scanner=new Scanner(new File(fileName));
+            hotel=new Hotel(scanner);
+            scanner.close();
+            return hotel;
+        } catch (FileNotFoundException e) {
+            //e.printStackTrace();
+            System.out.println("loading failed, creating new hotel");
+            hotel=createHotel();
         }
-        result = hotel.addGuestsToRoom(newGuests);
-        if (result == -1) {
-            System.out.println("No more rooms left in the hotel");
-        } else if (result == -2) {
-            System.out.println("No room was found for the requirements");
-        } else {
-            System.out.println("Guests added successfully to room number " + result);
-        }
+        return null;
+    }
+
+    public static Hotel createHotel() {
+        return new Hotel((int) (Math.random() * 9) + 1, (int) (Math.random() * 99) + 1);
     }
 }
