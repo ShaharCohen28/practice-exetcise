@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Company {
     //private static Company singleInstance=null;
-    private List<Employee> employees = new ArrayList<>();
+    private List<Employee> employees;
     private String name;
     private static final String pattern = "###,###.00";
     private static final DecimalFormat decimalFormat = new DecimalFormat(pattern);
@@ -27,6 +27,7 @@ public class Company {
 
     public Company(String name) {
         this.name = name;
+        this.employees=new ArrayList<>();
     }
 
     public String getName() {
@@ -81,7 +82,7 @@ public class Company {
         double sum = 0;
         int count = 0;
         for (Employee employee : this.employees) {
-            if (employee instanceof Manager) {
+            if (employee instanceof Managerable) {
                 sum += employee.getSalary();
                 count++;
             }
@@ -107,7 +108,7 @@ public class Company {
         checkException();
         int count = 0;
         for (Employee employee : this.employees) {
-            if (employee instanceof Manager) {
+            if (employee instanceof Managerable) {
                 count++;
             }
         }

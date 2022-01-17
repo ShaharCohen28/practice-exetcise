@@ -8,16 +8,17 @@ public class Test {
         Company company = new Company("company :)");
         int random;
         //Employee temp=MockData.getMocKDate((int)(Math.random()*EMPLOYEES_SIZE));
-        /*
+
         Employee[] employees = MockData.getMockData(new Employee[EMPLOYEES_SIZE]);
         Employee.printAll(employees);
         System.out.println("-------------------------");
         System.out.println("employees average salary: "+Employee.printAverageSalary(employees));
         System.out.println("minimum salary: "+Employee.MINIMUM_SALARY);
         System.out.println("management average salary: "+Employee.printManagementAverageSalary(employees));
-         */
 
-
+        for (Employee employee : employees) {
+            company.addEmployee(employee);
+        }
         for (int counter = 0; counter < EMPLOYEES_SIZE; counter++) {
             company.addEmployee(MockData.createEmployee(counter));
         }

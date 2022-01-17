@@ -2,7 +2,7 @@ package exercise;
 
 import java.util.Objects;
 
-public class Manager extends Employee {
+public class Manager extends Employee implements Managerable {
     protected String department;
 
     public Manager(String name, double salary, String department) {

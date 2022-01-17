@@ -38,6 +38,10 @@ public class MockData {
                 );
                 break;
             case 4:
+                employee=new Consulter(
+                        names[rnd.nextInt(names.length)],
+                        rnd.nextInt(10_000) + Employee.MINIMUM_SALARY
+                );
             case 5://director
                 employee = new Director(
                         names[rnd.nextInt(names.length)],
