@@ -4,11 +4,11 @@ public class Chair extends Furniture{
     private int numberOfLegs;
 
     public Chair() {
-        this((int)(Math.random()*(MockFurniture.MAX_LENGTH-MockFurniture.MIN_LENGTH))+MockFurniture.MIN_LENGTH,
-                (int)(Math.random()*(MockFurniture.MAX_WIDTH-MockFurniture.MIN_WIDTH)+MockFurniture.MIN_WIDTH),
-                (int)(Math.random()*(MockFurniture.MAX_HEIGHT-MockFurniture.MIN_HEIGHT))+MockFurniture.MIN_HEIGHT,
-                MockFurniture.colors[ (int)(Math.random()*MockFurniture.colors.length)],
-                (int)(Math.random()*(MockFurniture.MAX_LEGS-MockFurniture.MIN_LEGS)+MockFurniture.MIN_LEGS));
+        this(MockFurniture.randomLength(),
+                MockFurniture.randomWidth(),
+                MockFurniture.randomHeight(),
+                MockFurniture.randomColor(),
+                MockFurniture.randomNumOfLegs());
     }
 
     public Chair(int length, int width, int height, String color, int numberOfLegs) {

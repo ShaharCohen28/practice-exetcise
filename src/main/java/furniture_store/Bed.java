@@ -4,11 +4,11 @@ public class Bed extends Furniture{
     private boolean isDoubleBed;
 
     public Bed() {
-        this((int)(Math.random()*(MockFurniture.MAX_LENGTH-MockFurniture.MIN_LENGTH))+MockFurniture.MIN_LENGTH,
-                (int)(Math.random()*(MockFurniture.MAX_WIDTH-MockFurniture.MIN_WIDTH)+MockFurniture.MIN_WIDTH),
-                (int)(Math.random()*(MockFurniture.MAX_HEIGHT-MockFurniture.MIN_HEIGHT))+MockFurniture.MIN_HEIGHT,
-                MockFurniture.colors[ (int)(Math.random()*MockFurniture.colors.length)],
-                ((int)(Math.random()*2))%2==0);
+        this(MockFurniture.randomLength(),
+                MockFurniture.randomWidth(),
+                MockFurniture.randomHeight(),
+                MockFurniture.randomColor(),
+                MockFurniture.randomIsDoubleBed());
     }
 
     public Bed(int length, int width, int height, String color, boolean isDoubleBed) {
