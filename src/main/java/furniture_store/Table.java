@@ -1,6 +1,6 @@
 package furniture_store;
 
-public class Table extends Furniture implements Drawable{
+public class Table extends Furniture{
     private int numberOfSeats;
 
     public Table() {

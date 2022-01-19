@@ -1,6 +1,6 @@
 package furniture_store;
 
-public class Chair extends Furniture implements Drawable{
+public class Chair extends Furniture{
     private int numberOfLegs;
 
     public Chair() {

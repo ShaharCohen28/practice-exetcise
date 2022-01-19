@@ -1,6 +1,6 @@
 package furniture_store;
 
-public class Bed extends Furniture implements Drawable{
+public class Bed extends Furniture{
     private boolean isDoubleBed;
 
     public Bed() {
