@@ -4,7 +4,11 @@ public class Bed extends Furniture{
     private boolean isDoubleBed;
 
     public Bed() {
-        this(100,100,100,"black",true);
+        this((int)(Math.random()*(MockFurniture.MAX_LENGTH-MockFurniture.MIN_LENGTH))+MockFurniture.MIN_LENGTH,
+                (int)(Math.random()*(MockFurniture.MAX_WIDTH-MockFurniture.MIN_WIDTH)+MockFurniture.MIN_WIDTH),
+                (int)(Math.random()*(MockFurniture.MAX_HEIGHT-MockFurniture.MIN_HEIGHT))+MockFurniture.MIN_HEIGHT,
+                MockFurniture.colors[ (int)(Math.random()*MockFurniture.colors.length)],
+                ((int)(Math.random()*2))%2==0);
     }
 
     public Bed(int length, int width, int height, String color, boolean isDoubleBed) {
@@ -25,17 +29,18 @@ public class Bed extends Furniture{
     }
 
     @Override
-    public void draw() {
-        System.out.println("   ||");
-        System.out.println("   ||                  ||");
-        System.out.println("||/||____              ||");
-        System.out.println("|| /     )__________||_/|");
-        System.out.println("||/_____/_/_/_/_/_/_/||/|");
-        System.out.println("||(___)/_/_/_/_/_/__||  |");
-        System.out.println("||     |_|_|_|_|_|__|| /|");
-        System.out.println("||     |_|_|_|_|_|__||/||");
-        System.out.println("||~~~~~~~~~~~~~~~~~~||");
-        System.out.println("||                  ||");
-        System.out.println();
+    public String draw() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("   ||\n");
+        stringBuilder.append("   ||                  ||\n");
+        stringBuilder.append("||/||____              ||\n");
+        stringBuilder.append("|| /     )__________||_/|\n");
+        stringBuilder.append("||/_____/_/_/_/_/_/_/||/|\n");
+        stringBuilder.append("||(___)/_/_/_/_/_/__||  |\n");
+        stringBuilder.append("||     |_|_|_|_|_|__|| /|\n");
+        stringBuilder.append("||     |_|_|_|_|_|__||/||\n");
+        stringBuilder.append("||~~~~~~~~~~~~~~~~~~||\n");
+        stringBuilder.append("||                  ||\n");
+        return stringBuilder.toString();
     }
 }

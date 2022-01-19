@@ -4,7 +4,11 @@ public class Chair extends Furniture{
     private int numberOfLegs;
 
     public Chair() {
-        this(100,100,100,"black",4);
+        this((int)(Math.random()*(MockFurniture.MAX_LENGTH-MockFurniture.MIN_LENGTH))+MockFurniture.MIN_LENGTH,
+                (int)(Math.random()*(MockFurniture.MAX_WIDTH-MockFurniture.MIN_WIDTH)+MockFurniture.MIN_WIDTH),
+                (int)(Math.random()*(MockFurniture.MAX_HEIGHT-MockFurniture.MIN_HEIGHT))+MockFurniture.MIN_HEIGHT,
+                MockFurniture.colors[ (int)(Math.random()*MockFurniture.colors.length)],
+                (int)(Math.random()*(MockFurniture.MAX_LEGS-MockFurniture.MIN_LEGS)+MockFurniture.MIN_LEGS));
     }
 
     public Chair(int length, int width, int height, String color, int numberOfLegs) {
@@ -25,15 +29,16 @@ public class Chair extends Furniture{
     }
 
     @Override
-    public void draw() {
-        System.out.println("  i_______i");
-        System.out.println("  I_______I");
-        System.out.println("  I       I");
-        System.out.println("  I_______I");
-        System.out.println(" /       /I");
-        System.out.println("(______(  I");
-        System.out.println("I  I    I I");
-        System.out.println("I       I");
-        System.out.println();
+    public String draw() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("  i_______i\n");
+        stringBuilder.append("  I_______I\n");
+        stringBuilder.append("  I       I\n");
+        stringBuilder.append("  I_______I\n");
+        stringBuilder.append(" /       /I\n");
+        stringBuilder.append("(______(  I\n");
+        stringBuilder.append("I  I    I I\n");
+        stringBuilder.append("I       I\n");
+        return stringBuilder.toString();
     }
 }
