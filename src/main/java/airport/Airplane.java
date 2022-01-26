@@ -12,7 +12,7 @@ public class Airplane implements Runnable {
     }
 
     public void takeOff() {
-        System.out.println("Plane id#" + this.planeID + " is taking off");
+        System.out.println("Plane id #" + this.planeID + " is taking off");
     }
 
     public void fly() {
@@ -26,21 +26,21 @@ public class Airplane implements Runnable {
     }
 
     public void land() {
-        System.out.println("Plane id#" + this.planeID + " is landing");
+        System.out.println("Plane id #" + this.planeID + " is landing");
     }
 
     @Override
     public void run() {
-        //System.out.println("Plane id #" + this.planeID + " wants to take of");
+        System.out.println("Plane id #" + this.planeID + " wants to take of");
         synchronized (mutex) {
             takeOff();
         }
-        //System.out.println("Plane id #" + this.planeID + " has took off");
+        System.out.println("Plane id #" + this.planeID + " has took off");
         fly();
-        //System.out.println("Plane id #" + this.planeID + " wants to land");
+        System.out.println("Plane id #" + this.planeID + " wants to land");
         synchronized (mutex) {
             land();
         }
-        //System.out.println("Plane id #" + this.planeID + " has landed");
+        System.out.println("Plane id #" + this.planeID + " has landed");
     }
 }
