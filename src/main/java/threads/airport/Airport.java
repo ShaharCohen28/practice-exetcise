@@ -1,4 +1,4 @@
-package airport;
+package threads.airport;
 
 public class Airport {
     public final static int TOTAL_PLANES = 20;

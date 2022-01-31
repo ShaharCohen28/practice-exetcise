@@ -1,4 +1,4 @@
-package airport;
+package threads.airport;
 
 public class TestAirport {
     public static void main(String[] args) {

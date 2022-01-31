@@ -1,4 +1,4 @@
-package airport;
+package threads.airport;
 
 import java.util.Random;
 
