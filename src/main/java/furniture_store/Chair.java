@@ -3,13 +3,15 @@ package furniture_store;
 public class Chair extends Furniture{
     private int numberOfLegs;
 
-    public Chair() {
+  /*  public Chair() {
         this(MockFurniture.randomLength(),
                 MockFurniture.randomWidth(),
                 MockFurniture.randomHeight(),
                 MockFurniture.randomColor(),
                 MockFurniture.randomNumOfLegs());
     }
+    \
+   */
 
     public Chair(int length, int width, int height, String color, int numberOfLegs) {
         super(length, width, height, color);
