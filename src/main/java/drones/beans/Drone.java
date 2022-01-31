@@ -20,6 +20,9 @@ public class Drone implements Comparable<Drone> {
         this.entered = entered;
     }
 
+    public Drone() {
+    }
+
     public int getId() {
         return id;
     }
@@ -87,9 +90,9 @@ public class Drone implements Comparable<Drone> {
     @Override
     public int compareTo(Drone other) {
         if (other.getEntered().before(this.entered)) {
-            return 1;
-        } else {
             return -1;
+        } else {
+            return 1;
         }
     }
 

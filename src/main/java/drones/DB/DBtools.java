@@ -24,7 +24,7 @@ public class DBtools {
         Connection connection = null;
         try {
             connection = ConnectionPool.getInstance().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(DBmanager.CREATE_NEW_CUSTOMER);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
             params.forEach((key, value) -> {
                 try {
                     if (value instanceof Integer) {

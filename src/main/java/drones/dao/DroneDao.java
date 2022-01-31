@@ -3,6 +3,7 @@ package drones.dao;
 import drones.beans.Drone;
 
 import java.sql.Date;
+import java.util.Map;
 import java.util.Set;
 
 public interface DroneDao {
@@ -11,6 +12,6 @@ public interface DroneDao {
 
     void deleteDrone(int id);
 
-    Set<Drone> getAllDrones();
+    Set<Drone> getDrones(String sql, Map<Integer,Object> values);
 
 }

@@ -45,4 +45,16 @@ public class DBmanager {
     public static final String CREATE_DRONE = "INSERT INTO `drone_lab`.`drone` " +
             "(`customer_id`, `manufacturer`, `model`, `eta`, `entered`) " +
             "VALUES(?,?,?,?,?)";
+
+    public static final String DELETE_DRONE = "DELETE FROM `drone_lab`.`drone` WHERE `id`=?";
+
+    public static final String UPDATE_DRONE = "UPDATE `drone_lab`.`drone` " +
+            "SET customer_id=?, manufacturer=?, model=?, eta=?, entered=? " +
+            "WHERE id=?";
+
+    public static final String GET_ALL_DRONES = "SELECT * FROM `drone_lab`.`drone`";
+
+    public static final String GET_SINGLE_DRONE = "SELECT * FROM `drone_lab`.`drone` WHERE id=?";
+
+    public static final String GET_DRONES_BY_CUSTOMER="SELECT * FROM `drone_lab`.`drone` WHERE customer_id=?";
 }
