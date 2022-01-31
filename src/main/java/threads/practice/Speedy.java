@@ -63,6 +63,7 @@ public class Speedy implements Runnable {
         }
         if(!this.flag) {
             this.getEnemy().stopFlag();
+
         }
     }
 
