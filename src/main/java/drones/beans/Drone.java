@@ -2,7 +2,7 @@ package drones.beans;
 
 import java.sql.Date;
 
-public class Drone implements Comparable<Drone> {
+public class Drone implements  Comparable<Drone>{
     private int id;
     private int customer_id;
     private String manufacturer;
@@ -87,13 +87,13 @@ public class Drone implements Comparable<Drone> {
                 '}';
     }
 
+
     @Override
     public int compareTo(Drone other) {
-        if (other.getEntered().before(this.entered)) {
-            return -1;
-        } else {
+        if(other.getEta().before(this.getEta())){
             return 1;
+        }else{
+            return -1;
         }
     }
-
 }

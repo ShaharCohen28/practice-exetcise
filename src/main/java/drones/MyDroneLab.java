@@ -53,7 +53,7 @@ public class MyDroneLab {
          */
         Map<Integer, Object> droneValues = new HashMap<>();
         droneValues.put(1, 1);
-        Set<Drone> droneSet = dbDrone.getDrones(DBmanager.GET_SINGLE_DRONE, droneValues);
+        Set<Drone> droneSet = dbDrone.getDrones(DBmanager.GET_ALL_DRONES, droneValues);
         droneSet.forEach(System.out::println);
 
 
@@ -61,13 +61,13 @@ public class MyDroneLab {
 
 
         //this is for the drones
-        /*
-        Drone_mysql droneDBdao=new Drone_mysql();
-        Set<Drone> drones=droneDBdao.getAllDrones();
-        RepairScanner droneScanner=new RepairScanner(drones);
+
+        //Drone_mysql droneDBdao=new Drone_mysql();
+        //Set<Drone> drones=droneDBdao.getAllDrones();
+        RepairScanner droneScanner=new RepairScanner(droneSet);
         Thread droneTheard=new Thread(droneScanner);
         droneTheard.start();
-         */
+
 
     }
 

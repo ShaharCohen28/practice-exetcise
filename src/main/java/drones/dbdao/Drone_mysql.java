@@ -5,7 +5,6 @@ import drones.DB.DBtools;
 import drones.beans.Drone;
 import drones.dao.DroneDao;
 
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
@@ -45,7 +44,7 @@ public class Drone_mysql implements DroneDao {
     @Override
     public Set<Drone> getDrones(String sql,Map<Integer,Object> values) {
         //create comperator
-        Set<Drone> drones= new TreeSet<>();
+        Set<Drone> drones= new TreeSet<Drone>();
         ResultSet resultSet = DBtools.runQueryForResult(sql,values);
         try{
             while(resultSet.next()){
