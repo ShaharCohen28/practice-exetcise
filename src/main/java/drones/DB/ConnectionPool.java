@@ -29,7 +29,7 @@ public class ConnectionPool {
             connections.removeAllElements();
         }
     }
-
+//hello
     public static ConnectionPool getInstance()  {
         if (instance == null) {
             synchronized (ConnectionPool.class) {
