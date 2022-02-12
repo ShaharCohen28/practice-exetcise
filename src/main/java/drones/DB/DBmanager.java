@@ -57,4 +57,6 @@ public class DBmanager {
     public static final String GET_SINGLE_DRONE = "SELECT * FROM `drone_lab`.`drone` WHERE id=?";
 
     public static final String GET_DRONES_BY_CUSTOMER="SELECT * FROM `drone_lab`.`drone` WHERE customer_id=?";
+
+    public static final String HELLO_WORLD="hello world";
 }
