@@ -50,7 +50,9 @@ public class MyDroneLab {
             System.out.println(drone);
         }
 
+
          */
+
         Map<Integer, Object> droneValues = new HashMap<>();
         droneValues.put(1, 1);
         Set<Drone> droneSet = dbDrone.getDrones(DBmanager.GET_ALL_DRONES, droneValues);
